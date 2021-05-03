@@ -1,11 +1,208 @@
-FORMAT: 1A
-HOST: http://localhost:2701
+# Documentation for Icon Finder
 
-# Icon Finder RESTAPI - Kevin Fericco
+## Icons [/icons{?category}&{style}]
 
-RESTAPI of Icon information such as :
-- Data about icon at icon finder
+### Ambil banyak icon [GET]
 
-# Group Authentication
-The Iconfinder API uses API keys to authenticate the requests. You can create an application and manage your API keys under your account settings. The API key should be sent as an HTTP header with every request in the format
-```Authorization : Bearer {token}```
++ Parameters
+    + category (optional)
+        + default: none
+    + style (optional)
+        + default: none
+
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "total_count": 152340,
+                "iconsets": [
+                    {
+                    "iconset_id": 237079,
+                    "prices": [
+                        {
+                        "currency": "USD",
+                        "license": {
+                            "url": "https://www.iconfinder.com/licenses/basic",
+                            "license_id": 71,
+                            "name": "Basic license",
+                            "scope": "free"
+                        },
+                        "price": 150
+                        }
+                    ],
+                    "name": "Scenes 2",
+                    "styles": [],
+                    "author": {
+                        "user_id": 64309,
+                        "name": "Ramy Wafaa Wadee Abdou Bektor",
+                        "is_designer": true,
+                        "username": "roundicons",
+                        "company": "roundicons.com",
+                        "iconsets_count": 1067
+                    },
+                    "categories": [],
+                    "type": "vector",
+                    "are_all_icons_glyph": false,
+                    "is_premium": true,
+                    "published_at": "2021-05-03T13:07:58.543Z",
+                    "icons_count": 45,
+                    "identifier": "scenes-2-1"
+                    },
+                    ...
+                ]
+            }
+            
+
+## Icon Detail [/icons/{iconid}]
+
+### Ambil detail ikon [GET]
+
++ Parameters 
+    + iconid (required)
+
++ Response 200 (application/json)   
+
+    + body 
+
+            {
+                "iconset_id": 237079,
+                "prices": [
+                    {
+                    "currency": "USD",
+                    "license": {
+                        "url": "https://www.iconfinder.com/licenses/basic",
+                        "license_id": 71,
+                        "name": "Basic license",
+                        "scope": "free"
+                    },
+                    "price": 150
+                    }
+                ],
+                "name": "Scenes 2",
+                "styles": [],
+                "author": {
+                    "user_id": 64309,
+                    "name": "Ramy Wafaa Wadee Abdou Bektor",
+                    "is_designer": true,
+                    "username": "roundicons",
+                    "company": "roundicons.com",
+                    "iconsets_count": 1067
+                },
+                "categories": [],
+                "type": "vector",
+                "are_all_icons_glyph": false,
+                "is_premium": true,
+                "published_at": "2021-05-03T13:07:58.543Z",
+                "icons_count": 45,
+                "identifier": "scenes-2-1"
+            }
+
+## Categories [/categories]
+
+### Ambil Kategori [GET]
+
++ Response 200 (application/json)   
+
+    + body 
+
+            {
+                "total_count": 121,
+                "categories": [
+                    {
+                        "identifier": "abstract",
+                        "name": "Abstract"
+                    },
+                    {
+                        "identifier": "agriculture-farming-gardening",
+                        "name": "Agriculture, farming, & gardening"
+                    },
+                    {
+                        "identifier": "ai-robots-drones",
+                        "name": "AI, robots & drones"
+                    },
+                    {
+                        "identifier": "animal",
+                        "name": "Animals"
+                    },
+                    {
+                        "identifier": "architecture-urban-planning",
+                        "name": "Architecture & urban planning"
+                    },
+                    {
+                        "identifier": "arrow",
+                        "name": "Arrows"
+                    },
+                    {
+                        "identifier": "art-design",
+                        "name": "Art & design"
+                    },
+                    {
+                        "identifier": "arts-multimedia",
+                        "name": "Arts & multimedia"
+                    },
+                    {
+                        "identifier": "auto-service-repair",
+                        "name": "Auto service & repair"
+                    },
+                    {
+                        "identifier": "avatar",
+                        "name": "Avatars"
+                    }
+                ]
+            }
+
+## Styles [/styles]
+
+### Ambil style [GET]
+
++ Response 200 (application/json)   
+
+    + body 
+
+            {
+                "styles": [
+                    {
+                        "identifier": "3d",
+                        "name": "3D"
+                    },
+                    {
+                        "identifier": "badge",
+                        "name": "Badge"
+                    },
+                    {
+                        "identifier": "cartoon",
+                        "name": "Cartoon"
+                    },
+                    {
+                        "identifier": "filled-outline",
+                        "name": "Filled outline"
+                    },
+                    {
+                        "identifier": "flat",
+                        "name": "Flat"
+                    },
+                    {
+                        "identifier": "handdrawn",
+                        "name": "Handdrawn"
+                    },
+                    {
+                        "identifier": "illustration",
+                        "name": "Illustration"
+                    },
+                    {
+                        "identifier": "isometric",
+                        "name": "Isometric"
+                    },
+                    {
+                        "identifier": "long-shadow",
+                        "name": "Long Shadow"
+                    },
+                    {
+                        "identifier": "other",
+                        "name": "Other"
+                    }
+                ],
+                "total_count": 15
+            }
